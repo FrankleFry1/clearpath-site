@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Polymathic Works</title>
+  <meta name="description" content="Contact Polymathic Works to learn about ClearPath Suite pilot pricing and Founder's Five onboarding for your dermatology practice.">
+  <meta property="og:title" content="Contact — Polymathic Works">
+  <meta property="og:url" content="https://polymathicworks.com/contact.html">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav aria-label="Main">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Polymathic Works</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<section class="contact-section">
+  <div class="contact-inner">
+
+    <h1>Let's talk.</h1>
+
+    <p class="lead">We're onboarding the first five dermatology practices into the ClearPath Suite Founder's Five pilot. Pilot practices get preferred pricing locked for the life of the account, direct access to the development team, and meaningful input on the product roadmap. If you're running a Mohs surgery practice and you're tired of fighting your workflow tools, we'd like to hear from you.</p>
+
+    <a href="mailto:contact@polymathicworks.com" class="contact-email">contact@polymathicworks.com</a>
+
+    <!--
+      TODO: Replace the Formspree action URL below with your real endpoint.
+      1. Go to https://formspree.io and create a free account.
+      2. Create a new form and copy the endpoint ID (e.g. xabc1234).
+      3. Replace the placeholder below:
+         action="https://formspree.io/f/REPLACE_WITH_ID"
+    -->
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/xvzwlkbw"
+      method="POST"
+    >
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            autocomplete="name"
+            required
+            placeholder="Dr. Jane Smith"
+          >
+        </div>
+        <div class="field">
+          <label for="practice">Practice Name</label>
+          <input
+            type="text"
+            id="practice"
+            name="practice"
+            autocomplete="organization"
+            required
+            placeholder="Smith Dermatology"
+          >
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          autocomplete="email"
+          required
+          placeholder="you@yourpractice.com"
+        >
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          placeholder="Tell us a bit about your practice — how many providers, how many Mohs cases per week, and what's driving you to look for something better."
+        ></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Send Message</button>
+
+    </form>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Polymathic Works LLC</span>
+    <a href="mailto:contact@polymathicworks.com" class="footer-contact">contact@polymathicworks.com</a>
+    <span class="footer-locale">Built in Cleveland, TN</span>
+  </div>
+</footer>
+
+</body>
+</html>

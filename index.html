@@ -3,473 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Polymathic Works LLC — ClearPath Suite</title>
-  <meta name="description" content="Precision workflow tools for dermatology. ClearPath Suite automates documentation, charge capture, and prior authorization for Mohs surgery practices.">
-  <meta property="og:title" content="Polymathic Works LLC — ClearPath Suite">
-  <meta property="og:description" content="Precision workflow tools for dermatology practices.">
+  <title>Polymathic Works — Healthcare Workflow Software</title>
+  <meta name="description" content="ClearPath Suite — purpose-built workflow software for Mohs surgery and dermatology practices. ModMed-native, AWS HIPAA-compliant, built by clinicians.">
+  <meta property="og:title" content="Polymathic Works — Healthcare Workflow Software">
+  <meta property="og:description" content="ClearPath Suite automates Mohs surgery documentation, charge capture, and prior authorization for dermatology practices.">
   <meta property="og:url" content="https://polymathicworks.com">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --blue-600: #2563eb;
-      --blue-700: #1d4ed8;
-      --blue-50:  #eff6ff;
-      --slate-900: #0f172a;
-      --slate-700: #334155;
-      --slate-500: #64748b;
-      --slate-300: #cbd5e1;
-      --slate-100: #f1f5f9;
-      --slate-800: #1e293b;
-      --white: #ffffff;
-      --green-600: #16a34a;
-      --green-50:  #f0fdf4;
-      --slate-400: #94a3b8;
-      --green-200: #bbf7d0;
-    }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      color: var(--slate-900);
-      background: var(--white);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--slate-300);
-      padding: 0 2rem;
-    }
-
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: var(--slate-900);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-
-    .nav-logo sup {
-      font-size: 0.6rem;
-      font-weight: 500;
-      color: var(--slate-500);
-      vertical-align: super;
-      margin-left: 2px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--slate-700);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .nav-links a:hover { color: var(--blue-600); }
-
-    /* ── HERO ── */
-    .hero {
-      background: var(--white);
-      padding: 6rem 2rem 5rem;
-      text-align: center;
-    }
-
-    .hero-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--blue-600);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      color: var(--slate-900);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero p {
-      font-size: 1.125rem;
-      color: var(--slate-500);
-      max-width: 580px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: var(--blue-600);
-      color: var(--white);
-      font-size: 0.9375rem;
-      font-weight: 600;
-      padding: 0.75rem 1.75rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-
-    .btn-primary:hover { background: var(--blue-700); }
-
-    .btn-outline {
-      display: inline-block;
-      border: 1.5px solid var(--slate-300);
-      color: var(--slate-700);
-      font-size: 0.9375rem;
-      font-weight: 600;
-      padding: 0.75rem 1.75rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: border-color 0.15s, color 0.15s;
-    }
-
-    .btn-outline:hover {
-      border-color: var(--blue-600);
-      color: var(--blue-600);
-    }
-
-    /* ── SECTION SHARED ── */
-    section { padding: 5rem 2rem; }
-    section[id] { scroll-margin-top: 64px; }
-
-    .section-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--blue-600);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-heading {
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--slate-900);
-      margin-bottom: 0.625rem;
-    }
-
-    .section-sub {
-      font-size: 1rem;
-      color: var(--slate-500);
-      margin-bottom: 3rem;
-    }
-
-    /* ── SUITE SECTION ── */
-    #suite { background: var(--blue-50); }
-
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .tool-card {
-      background: var(--white);
-      border: 1px solid var(--slate-300);
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-      transition: box-shadow 0.2s;
-    }
-
-    .tool-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-
-    .tool-card-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-
-    .tool-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--blue-50);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .tool-icon svg {
-      width: 22px;
-      height: 22px;
-      color: var(--blue-600);
-    }
-
-    .badge-available {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.25rem 0.625rem;
-      border-radius: 999px;
-      background: var(--green-50);
-      color: var(--green-600);
-      border: 1px solid var(--green-200);
-    }
-
-    .tool-card h3 {
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: var(--slate-900);
-      margin-bottom: 0.5rem;
-    }
-
-    .tool-card p {
-      font-size: 0.9375rem;
-      color: var(--slate-500);
-      line-height: 1.65;
-    }
-
-    /* ── ABOUT / TRUST SECTION ── */
-    #about { background: var(--white); }
-
-    .pillar-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-    }
-
-    .pillar {
-      display: flex;
-      flex-direction: column;
-      gap: 0.625rem;
-    }
-
-    .pillar-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--blue-50);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.25rem;
-    }
-
-    .pillar-icon svg {
-      width: 20px;
-      height: 20px;
-      color: var(--blue-600);
-    }
-
-    .pillar h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--slate-900);
-    }
-
-    .pillar p {
-      font-size: 0.9375rem;
-      color: var(--slate-500);
-      line-height: 1.6;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--slate-800);
-      padding: 2.5rem 2rem;
-    }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-copy {
-      font-size: 0.875rem;
-      color: var(--slate-400);
-    }
-
-    .footer-contact {
-      font-size: 0.875rem;
-      color: var(--slate-400);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .footer-contact:hover { color: var(--white); }
-
-    /* ── MOBILE ── */
-    @media (max-width: 640px) {
-      nav { padding: 0 1rem; }
-      .nav-links { gap: 1.25rem; }
-      .hero { padding: 4rem 1.25rem 3.5rem; }
-      section { padding: 3.5rem 1.25rem; }
-      .hero-actions { flex-direction: column; align-items: center; }
-      .btn-primary, .btn-outline { width: 100%; max-width: 280px; text-align: center; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
 <!-- ── NAV ── -->
 <nav aria-label="Main">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">Polymathic Works<sup>LLC</sup></a>
+    <a href="index.html" class="nav-logo">Polymathic Works</a>
     <ul class="nav-links">
-      <li><a href="#suite">Suite</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ── MAIN CONTENT ── -->
 <main>
 
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-inner">
     <span class="hero-eyebrow">ClearPath Suite</span>
-    <h1>Precision Workflow Tools for Dermatology.</h1>
-    <p>ClearPath Suite automates documentation, charge capture, and prior authorization for Mohs surgery and dermatology practices.</p>
+    <h1>Healthcare workflow software built from the inside.</h1>
+    <p>ClearPath Suite is a set of purpose-built tools for dermatology practices — covering Mohs surgery documentation, prior authorization for biologics, and native integration with ModMed EHR. No generic templates. No adapter layers. Built to match the way dermatology actually works.</p>
     <div class="hero-actions">
-      <a href="#suite" class="btn-primary">Explore the Suite</a>
-      <a href="mailto:contact@polymathicworks.com" class="btn-outline">Contact Us</a>
+      <a href="products.html" class="btn-primary">Explore Products</a>
+      <a href="contact.html" class="btn-outline">Contact Us</a>
     </div>
   </div>
 </section>
 
-<!-- ── SUITE ── -->
-<section id="suite">
+<!-- ── THREE-COLUMN VALUES ── -->
+<section style="background: var(--white);">
   <div class="section-inner">
-    <p class="section-label" aria-hidden="true">The ClearPath Suite</p>
-    <h2 class="section-heading">Purpose-built for dermatology workflows.</h2>
-    <p class="section-sub">Tools designed around how dermatology practices actually work — not generic healthcare software.</p>
-    <div class="tool-grid">
+    <p class="section-label">What We Build</p>
+    <h2 class="section-heading">Three problems. Three tools. One suite.</h2>
+    <p class="section-sub">Each ClearPath tool was designed around a specific pain point we observed firsthand — not retrofitted from a generic platform.</p>
+    <div class="value-grid">
 
-      <div class="tool-card">
-        <div class="tool-card-header">
-          <div class="tool-icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/>
-            </svg>
-          </div>
-          <span class="badge-available">Available</span>
-        </div>
-        <h3>ClearPath Mohs-Maker</h3>
-        <p>Day-sheet management for Mohs surgery. Patient scheduling, anatomical diagrams, CPT documentation, and batch PDF printing — replacing error-prone Excel workflows with a purpose-built tool.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── ABOUT ── -->
-<section id="about">
-  <div class="section-inner">
-    <p class="section-label" aria-hidden="true">Why ClearPath</p>
-    <h2 class="section-heading">Built for Dermatology. Designed for Compliance.</h2>
-    <p class="section-sub">Every architectural decision reflects the real constraints of a dermatology practice.</p>
-    <div class="pillar-grid">
-
-      <div class="pillar">
-        <div class="pillar-icon">
+      <div class="value-card">
+        <div class="value-card-icon value-card-icon--teal">
           <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/>
           </svg>
         </div>
-        <h4>On-Premise Data</h4>
-        <p>PHI never leaves your office. Runs on your local workstation — not in a third-party cloud you don't control.</p>
+        <h3>Mohs Surgery</h3>
+        <p>Day-sheet management with 38 anatomical diagram types, automated CPT documentation, charge capture to ModMed, and surgical packet PDF generation — replacing the whiteboard and Excel.</p>
       </div>
 
-      <div class="pillar">
-        <div class="pillar-icon">
-          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
-          </svg>
-        </div>
-        <h4>HIPAA-Ready</h4>
-        <p>Forensic audit logging, encrypted storage, and access controls built in from day one — not bolted on.</p>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-icon">
+      <div class="value-card">
+        <div class="value-card-icon value-card-icon--navy">
           <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .03 2.603-1.348 2.603A15.729 15.729 0 0112 18.75c-3.432 0-6.68-.94-9.454-2.595-1.378 0-2.348-1.602-1.348-2.603L2.6 12.15"/>
           </svg>
         </div>
-        <h4>Dermatology-Specific</h4>
-        <p>28 tumor types, 38 anatomical diagram templates, Mohs-specific workflows. No irrelevant fields, no generic EHR bloat.</p>
+        <h3>Prior Auth Intelligence</h3>
+        <p>AI-assisted prior authorization for biologic medications. ClearPath PA pulls chart data directly from ModMed, extracts the clinical criteria that matter, and assembles a submission-ready PA package.</p>
       </div>
 
-      <div class="pillar">
-        <div class="pillar-icon">
+      <div class="value-card">
+        <div class="value-card-icon value-card-icon--mint">
           <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 3M21 7.5H7.5"/>
           </svg>
         </div>
-        <h4>No SaaS Lock-In</h4>
-        <p>One-time licensing. No monthly subscriptions, no vendor dependency, no data held hostage if you stop paying.</p>
+        <h3>ModMed Native</h3>
+        <p>Both tools connect directly to ModMed via the synapSYS API — patient lookup, encounter data, charge posting, and document attachment all happen without leaving the workflow.</p>
       </div>
 
     </div>
   </div>
 </section>
 
+<!-- ── CREDIBILITY STRIP ── -->
+<div class="cred-strip" aria-label="Credentials">
+  <div class="cred-strip-inner">
+    <span class="cred-item">Tennessee LLC</span>
+    <span class="cred-divider" aria-hidden="true">·</span>
+    <span class="cred-item">ModMed synapSYS Developer Partner</span>
+    <span class="cred-divider" aria-hidden="true">·</span>
+    <span class="cred-item">AWS HIPAA-Compliant</span>
+    <span class="cred-divider" aria-hidden="true">·</span>
+    <span class="cred-item">Copyright Registered</span>
+  </div>
+</div>
+
 </main>
 
 <!-- ── FOOTER ── -->
-<footer id="contact">
+<footer>
   <div class="footer-inner">
     <span class="footer-copy">© 2026 Polymathic Works LLC</span>
     <a href="mailto:contact@polymathicworks.com" class="footer-contact">contact@polymathicworks.com</a>
+    <span class="footer-locale">Built in Cleveland, TN</span>
   </div>
 </footer>
 
